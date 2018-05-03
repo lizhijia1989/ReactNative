@@ -25,9 +25,9 @@ const isiPhoneX = (
 );
 
 const r = value => {
-  const scaleValue =  Math.floor(value * (screenWidth / 375) + 0.5);
-  return  (value > 0 && scaleValue === 0)  ? p1x : scaleValue;
-}
+  const scaleValue = Math.floor((value * (screenWidth / 375)) + 0.5);
+  return (value > 0 && scaleValue === 0) ? p1x : scaleValue;
+};
 
 const iPhoneXBottomHeight = 34;
 

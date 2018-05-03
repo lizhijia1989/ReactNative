@@ -2,23 +2,20 @@
  * Viewport
  */
 
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {
-  StyleSheet,
-  Text,
   View
 } from 'react-native';
 
-export default class Viewport extends Component {
-  constructor(props) {
-    super(props);
-  }
+const Viewport = props => (
+  <View style={{ flex: 1 }}>
+    {props.children}
+  </View>
+);
 
-  render() {
-    return (
-      <View style={{ flex: 1 }}>
-        {this.props.children}
-      </View>
-    );
-  }
-}
+Viewport.propTypes = {
+  children: PropTypes.array
+};
+
+export default Viewport;

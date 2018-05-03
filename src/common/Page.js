@@ -2,12 +2,12 @@
  * Page
  */
 
-import React, { Component } from 'react';
+import { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class Page extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props)
+  static propTypes = {
+    navigation: PropTypes.object
   }
 
   push(route) {

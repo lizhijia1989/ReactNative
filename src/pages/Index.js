@@ -55,6 +55,8 @@ export default class Index extends Page {
       <Viewport>
         <Header
           page={this}
+          title={'首页'}
+          hideBackBtn
         />
         <ScrollView
           style={styles.scrollView}
