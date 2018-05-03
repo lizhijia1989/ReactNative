@@ -12,6 +12,7 @@ import {
   PanResponder
 } from 'react-native';
 import Page from '../common/Page.js';
+import Header from '../components/Header.js';
 
 export default class DemoAnimatedEvent extends Page {
   constructor(props) {
@@ -40,46 +41,49 @@ export default class DemoAnimatedEvent extends Page {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Animated.View
-          style={[styles.box, { 
-            width: this.offsetY.interpolate({
-              inputRange: [0, 0, 200, 200],
-              outputRange: [50, 50, 200, 200]
-            })
-          }]}
-        />
-        <ScrollView
-          style={{ flex: 1 }}
-          scrollEventThrottle={1}
-          onScroll={Animated.event([
-            {
-              nativeEvent: {
-                contentOffset: {y: this.offsetY}
-              }
-            }
-          ])}
-        >
-        {
-          [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((item, i) => (
-            <Text key={i}>{item}</Text>
-          ))
-        }
-        </ScrollView>
-        <View>
-          <Text>pansponder</Text>
-        </View>
-        <View style={{ flex: 1, alignItems: 'center' }}>
+      <View>
+        <Header />
+        <View style={styles.container}>
           <Animated.View
-            style={[styles.box, {
-              width: 50,
-              transform:[
-                {translateX:this.trans.x},
-                {translateY:this.trans.y}
-              ],
+            style={[styles.box, { 
+              width: this.offsetY.interpolate({
+                inputRange: [0, 0, 200, 200],
+                outputRange: [50, 50, 200, 200]
+              })
             }]}
-            {...this._panResponder.panHandlers}
           />
+          <ScrollView
+            style={{ flex: 1 }}
+            scrollEventThrottle={1}
+            onScroll={Animated.event([
+              {
+                nativeEvent: {
+                  contentOffset: {y: this.offsetY}
+                }
+              }
+            ])}
+          >
+          {
+            [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map((item, i) => (
+              <Text key={i}>{item}</Text>
+            ))
+          }
+          </ScrollView>
+          <View>
+            <Text>pansponder</Text>
+          </View>
+          <View style={{ flex: 1, alignItems: 'center' }}>
+            <Animated.View
+              style={[styles.box, {
+                width: 50,
+                transform:[
+                  {translateX:this.trans.x},
+                  {translateY:this.trans.y}
+                ],
+              }]}
+              {...this._panResponder.panHandlers}
+            />
+          </View>
         </View>
       </View>
     );

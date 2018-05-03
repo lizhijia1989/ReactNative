@@ -12,6 +12,7 @@ import {
   Easing
 } from 'react-native';
 import Page from '../common/Page.js';
+import Header from '../components/Header.js';
 
 export default class DemoAnimated extends Page {
   constructor(props) {
@@ -67,25 +68,28 @@ export default class DemoAnimated extends Page {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Animated.View
-          style={[styles.boxA, {
-            transform: [
-              {
-                translateX: this.animValue
-                // translateX: this.animValue.interpolate({
-                //   inputRange: [0, 50, 100],
-                //   outputRange: [0, 100, 110]
-                // })
-              }
-            ]
-          }]}
-        />
-        <TouchableOpacity
-          onPress={this.handlePress}
-        >
-          <Text>toggle</Text>
-        </TouchableOpacity>
+      <View>
+        <Header />
+        <View style={styles.container}>
+          <Animated.View
+            style={[styles.boxA, {
+              transform: [
+                {
+                  translateX: this.animValue
+                  // translateX: this.animValue.interpolate({
+                  //   inputRange: [0, 50, 100],
+                  //   outputRange: [0, 100, 110]
+                  // })
+                }
+              ]
+            }]}
+          />
+          <TouchableOpacity
+            onPress={this.handlePress}
+          >
+            <Text>toggle</Text>
+          </TouchableOpacity>
+        </View>
       </View>
     );
   }

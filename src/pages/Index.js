@@ -13,6 +13,8 @@ import {
   TouchableHighlight
 } from 'react-native';
 import Page from '../common/Page.js';
+import Viewport from '../components/Viewport.js';
+import Header from '../components/Header.js';
 import {
   commonStyles
 } from '../common/Constant.js';
@@ -50,7 +52,10 @@ export default class Index extends Page {
 
   render() {
     return (
-      <View style={commonStyles.container}>
+      <Viewport>
+        <Header
+          page={this}
+        />
         <ScrollView
           style={styles.scrollView}
         >
@@ -67,12 +72,15 @@ export default class Index extends Page {
             ))
           }
         </ScrollView>
-      </View>
+      </Viewport>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  scrollView: {
+    flex: 1
+  },
   item: {
     justifyContent: 'center',
     height: 44,
