@@ -2,7 +2,7 @@
  * DemoAnimated
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -12,6 +12,7 @@ import {
   Easing
 } from 'react-native';
 import Page from '../common/Page.js';
+import Viewport from '../components/Viewport.js';
 import Header from '../components/Header.js';
 
 export default class DemoAnimated extends Page {
@@ -68,8 +69,11 @@ export default class DemoAnimated extends Page {
 
   render() {
     return (
-      <View>
-        <Header />
+      <Viewport>
+        <Header
+          page={this}
+          title={'Animated'}
+        />
         <View style={styles.container}>
           <Animated.View
             style={[styles.boxA, {
@@ -90,7 +94,7 @@ export default class DemoAnimated extends Page {
             <Text>toggle</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </Viewport>
     );
   }
 }

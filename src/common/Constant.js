@@ -31,14 +31,6 @@ const r = value => {
 
 const iPhoneXBottomHeight = 34;
 
-const commonStyles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingBottom: isiPhoneX ? iPhoneXBottomHeight : 0,
-    backgroundColor: '#f3f3f3'
-  }
-});
-
 export {
   screenWidth,
   screenHeight,
@@ -47,6 +39,5 @@ export {
   isAndroid,
   isiPhoneX,
   r,
-  iPhoneXBottomHeight,
-  commonStyles
+  iPhoneXBottomHeight
 };

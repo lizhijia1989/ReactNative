@@ -2,7 +2,7 @@
  * DemoKeyboardAvoiding
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,13 +10,13 @@ import {
   ScrollView,
   TextInput,
   KeyboardAvoidingView,
-  UIManager,
   Keyboard
 } from 'react-native';
 import Page from '../common/Page.js';
+import Viewport from '../components/Viewport.js';
+import Header from '../components/Header.js';
 import {
   screenWidth,
-  screenHeight,
   commonStyles,
   isiPhoneX
 } from '../common/Constant.js';
@@ -49,10 +49,7 @@ export default class DemoKeyboardAvoidingView extends Page {
   render() {
     console.log('render',this.state.keyboardHeight)
     return (
-      <View
-        style={commonStyles.container}
-        onLayout={this.handleLayout}
-      >
+      <Viewport>
         <KeyboardAvoidingView
           style={{ flex: 1 }}
           behavior={'position'}
@@ -117,8 +114,8 @@ export default class DemoKeyboardAvoidingView extends Page {
               />
             </KeyboardAvoidingView>
           }
-          </KeyboardAvoidingView>
-      </View>
+        </KeyboardAvoidingView>
+      </Viewport>
     );
   }
 }

@@ -4,24 +4,22 @@
  * @flow
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import {
   StyleSheet,
   Text,
-  View,
   ScrollView,
-  TouchableHighlight
+  TouchableHighlight,
+  StatusBar
 } from 'react-native';
 import Page from '../common/Page.js';
 import Viewport from '../components/Viewport.js';
 import Header from '../components/Header.js';
-import {
-  commonStyles
-} from '../common/Constant.js';
 
 export default class Index extends Page {
   constructor(props) {
     super(props);
+    StatusBar.setBarStyle('light-content');
     this.pages = [
       {
         title: 'Animated',
@@ -38,14 +36,6 @@ export default class Index extends Page {
       {
         title: 'KeyboardAvoidingView',
         route: 'DemoKeyboardAvoidingView'
-      },
-      {
-        title: 'KeyboardAwareScrollView',
-        route: 'DemoKeyboardAwareScrollView'
-      },
-      {
-        title: 'PanResponder',
-        route: 'DemoPanResponder'
       }
     ];
   }
@@ -65,7 +55,7 @@ export default class Index extends Page {
             this.pages.map((item, i) => (
               <TouchableHighlight
                 key={i}
-                underlayColor='#ddd'
+                underlayColor={'#ddd'}
                 style={[styles.item, i === 0 && { borderTopWidth: 1 }]}
                 onPress={() => this.push(item.route)}
               >

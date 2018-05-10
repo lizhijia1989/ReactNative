@@ -14,9 +14,11 @@ import {
   LayoutAnimation
 } from 'react-native';
 import Page from '../common/Page.js';
+import Viewport from '../components/Viewport.js';
+import Header from '../components/Header.js';
 
-const { UIManager } = NativeModules
-UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
+const { UIManager } = NativeModules;
+if (UIManager.setLayoutAnimationEnabledExperimental) UIManager.setLayoutAnimationEnabledExperimental(true);
 
 class BoxA extends Component {
   constructor(props) {
@@ -44,6 +46,10 @@ class BoxA extends Component {
   render() {
     return (
       <View>
+        <Header
+          page={this}
+          title={'LayoutAnimation'}
+        />
         <TouchableWithoutFeedback
           onPress={this.toggle}
         >
@@ -60,10 +66,12 @@ class BoxA extends Component {
         </TouchableWithoutFeedback>
         {
           this.state.visible &&
-          <View style={[styles.boxA, {
-            width: this.state.value,
-            height: this.state.value
-          }]}>
+          <View
+            style={[styles.boxA, {
+              width: this.state.value,
+              height: this.state.value
+            }]}
+          >
             <Text>BoxA</Text>
           </View>
         }
@@ -163,20 +171,16 @@ class BoxC extends Component {
 export default class DemoLayoutAnimation extends Page {
   render() {
     return (
-      <View style={styles.container}>
+      <Viewport>
         <BoxA />
         <BoxB />
         <BoxC />
-      </View>
+      </Viewport>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#f3f3f3'
-  },
   boxA: {
     // overflow: 'hidden',
     backgroundColor: 'red'

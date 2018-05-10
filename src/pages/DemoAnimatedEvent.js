@@ -2,7 +2,7 @@
  * DemoAnimated
  */
 
-import React, { Component } from 'react';
+import React from 'react';
 import {
   StyleSheet,
   Text,
@@ -12,6 +12,7 @@ import {
   PanResponder
 } from 'react-native';
 import Page from '../common/Page.js';
+import Viewport from '../components/Viewport.js';
 import Header from '../components/Header.js';
 
 export default class DemoAnimatedEvent extends Page {
@@ -41,8 +42,11 @@ export default class DemoAnimatedEvent extends Page {
 
   render() {
     return (
-      <View>
-        <Header />
+      <Viewport>
+        <Header
+          page={this}
+          title={'Animated.Event'}
+        />
         <View style={styles.container}>
           <Animated.View
             style={[styles.box, { 
@@ -85,7 +89,7 @@ export default class DemoAnimatedEvent extends Page {
             />
           </View>
         </View>
-      </View>
+      </Viewport>
     );
   }
 }

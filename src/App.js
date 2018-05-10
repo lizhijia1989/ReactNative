@@ -11,7 +11,6 @@ import DemoLayoutAnimation from './pages/DemoLayoutAnimation.js';
 import DemoAnimated from './pages/DemoAnimated.js';
 import DemoAnimatedEvent from './pages/DemoAnimatedEvent.js';
 import DemoKeyboardAvoidingView from './pages/DemoKeyboardAvoidingView.js';
-import DemoPanResponder from './pages/DemoPanResponder.js';
 
 const App = StackNavigator(
   {
@@ -29,9 +28,6 @@ const App = StackNavigator(
     },
     DemoKeyboardAvoidingView: {
       screen: DemoKeyboardAvoidingView
-    },
-    DemoPanResponder: {
-      screen: DemoPanResponder
     }
   },
   {
