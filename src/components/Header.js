@@ -34,7 +34,7 @@ export default class Header extends Component {
             style={styles.back}
             onPress={() => this.props.page.pop()}
           >
-            <Text style={styles.backText}>&lt;</Text>
+            <View style={styles.backText} />
           </TouchableOpacity>
           : null
         }
@@ -46,6 +46,7 @@ export default class Header extends Component {
 
 const styles = StyleSheet.create({
   container: {
+    zIndex: 10,
     paddingTop: isiPhoneX ? 44 : 20,
     paddingHorizontal: r(44),
     backgroundColor: '#4289ff'
@@ -67,7 +68,14 @@ const styles = StyleSheet.create({
     height: r(44)
   },
   backText: {
-    fontSize: r(18),
-    color: '#fff'
+    width: r(12),
+    height: r(12),
+    borderTopWidth: r(2),
+    borderLeftWidth: r(2),
+    borderStyle: 'solid',
+    borderColor: '#fff',
+    transform: [{
+      rotate: '-45deg'
+    }]
   }
 });

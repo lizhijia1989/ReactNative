@@ -19,22 +19,19 @@ export default class DemoAnimatedEvent extends Page {
   constructor(props) {
     super(props);
     this.offsetY = new Animated.Value(0);
-    this.trans = new Animated.ValueXY(),
-    this._panResponder = PanResponder.create({
+    this.trans = new Animated.ValueXY();
+    this.panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
-      // onMoveShouldSetPanResponder: (evt, gestureState) => true,onMoveShouldSetPanResponder: (evt, gestureState) => true,
-      onMoveShouldSetPanResponderCapture: (evt, gestureState) => {
-        return true;
-      },
+      onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
       onPanResponderMove: Animated.event(
-        [null, {dx: this.trans.x, dy:this.trans.y}]
+        [null, { dx: this.trans.x, dy: this.trans.y }]
       ),
-      onPanResponderRelease: ()=>{
-        Animated.spring(this.trans, {toValue: {x: 0, y: 0}}
+      onPanResponderRelease: () => {
+        Animated.spring(this.trans, { toValue: { x: 0, y: 0 } }
          ).start();
       },
-      onPanResponderTerminate:()=>{
-        Animated.spring(this.trans, {toValue: {x: 0, y: 0}}
+      onPanResponderTerminate: () => {
+        Animated.spring(this.trans, { toValue: { x: 0, y: 0 } }
          ).start();
       },
     });
@@ -85,7 +82,7 @@ export default class DemoAnimatedEvent extends Page {
                   {translateY:this.trans.y}
                 ],
               }]}
-              {...this._panResponder.panHandlers}
+              {...this.panResponder.panHandlers}
             />
           </View>
         </View>

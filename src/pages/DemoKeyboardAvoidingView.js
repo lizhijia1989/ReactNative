@@ -6,7 +6,6 @@ import React from 'react';
 import {
   StyleSheet,
   Text,
-  View,
   ScrollView,
   TextInput,
   KeyboardAvoidingView,
@@ -16,9 +15,7 @@ import Page from '../common/Page.js';
 import Viewport from '../components/Viewport.js';
 import Header from '../components/Header.js';
 import {
-  screenWidth,
-  commonStyles,
-  isiPhoneX
+  screenHeight
 } from '../common/Constant.js';
 
 export default class DemoKeyboardAvoidingView extends Page {
@@ -26,7 +23,7 @@ export default class DemoKeyboardAvoidingView extends Page {
     super(props);
     this.state = {
       behaviorA: true,
-      keyboardHeight: 0
+      keyboardHeight: 333
     };
   }
 
@@ -47,14 +44,18 @@ export default class DemoKeyboardAvoidingView extends Page {
   }
 
   render() {
-    console.log('render',this.state.keyboardHeight)
+    const { keyboardHeight, behaviorA } = this.state;
     return (
       <Viewport>
+        <Header
+          page={this}
+          title={'KeyboardAvoidingView'}
+        />
         <KeyboardAvoidingView
           style={{ flex: 1 }}
           behavior={'position'}
-          contentContainerStyle={{ position: 'absolute', top: 0, bottom: 0, left: 0, width: screenWidth }}
-          keyboardVerticalOffset={this.state.behaviorA ? (isiPhoneX ? 90 : 64) : -600}
+          contentContainerStyle={{ flex: 1 }}
+          keyboardVerticalOffset={behaviorA ? 0 : -keyboardHeight}
         >
           <ScrollView
             style={styles.scrollView}
@@ -63,8 +64,7 @@ export default class DemoKeyboardAvoidingView extends Page {
             scrollEventThrottle={16}
             onScroll={e => {
               this.textInputRefA.measure((x, y, w, h, left, top) => {
-                const height = this.state.keyboardHeight ? this.state.keyboardHeight : 400;
-                const { behaviorA } = this.state;
+                const height = screenHeight - keyboardHeight - h;
                 if (top > height) {
                   if (!behaviorA) {
                     this.setState({
@@ -78,42 +78,22 @@ export default class DemoKeyboardAvoidingView extends Page {
                     });
                   }
                 }
-              })
+              });
             }}
           >
             {
-              [0,1,2,3,4,5,6,7,8].map((item, i) => <Text style={{ height: 50 }} key={i}>{item}</Text>)
+              [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((item, i) => <Text style={{ height: 50 }} key={i}>{item}</Text>)
             }
             {
               <TextInput
-                ref={r => { this.textInputRefA = r }}
+                ref={r => { this.textInputRefA = r; }}
                 style={styles.textInput}
               />
             }
             {
-              [0,1,2,3,4,5,6,7,8,9,10,11].map((item, i) => <Text style={{ height: 50 }} key={i}>{item}</Text>)
+              [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((item, i) => <Text style={{ height: 50 }} key={i}>{item}</Text>)
             }
           </ScrollView>
-          {
-            <KeyboardAvoidingView
-              contentContainerStyle={styles.bottomBar}
-              behavior={'position'}
-              keyboardVerticalOffset={isiPhoneX ? 90 : 64}
-            >
-              <TextInput
-                style={styles.textInput}
-                multiline
-                onEndEditing={() => {
-                  console.log('onEndEditing')
-                }}
-                blurOnSubmit
-                onSubmitEditing={() => {
-                  console.log('onSubmitEditing')
-                }}
-                returnKeyType="done"
-              />
-            </KeyboardAvoidingView>
-          }
         </KeyboardAvoidingView>
       </Viewport>
     );

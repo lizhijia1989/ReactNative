@@ -46,10 +46,6 @@ class BoxA extends Component {
   render() {
     return (
       <View>
-        <Header
-          page={this}
-          title={'LayoutAnimation'}
-        />
         <TouchableWithoutFeedback
           onPress={this.toggle}
         >
@@ -172,6 +168,10 @@ export default class DemoLayoutAnimation extends Page {
   render() {
     return (
       <Viewport>
+        <Header
+          page={this}
+          title={'LayoutAnimation'}
+        />
         <BoxA />
         <BoxB />
         <BoxC />
