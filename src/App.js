@@ -7,27 +7,31 @@
 import { StackNavigator } from 'react-navigation';
 
 import Index from './pages/Index.js';
-import DemoAnimated from './pages/DemoAnimated.js';
-import DemoLayoutAnimation from './pages/DemoLayoutAnimation.js';
-import DemoAnimatedEvent from './pages/DemoAnimatedEvent.js';
-import DemoKeyboardAvoidingView from './pages/DemoKeyboardAvoidingView.js';
+import Animated from './pages/Animated.js';
+import LayoutAnimation from './pages/LayoutAnimation.js';
+import AnimatedEvent from './pages/AnimatedEvent.js';
+import KeyboardAvoidingView from './pages/KeyboardAvoidingView.js';
+import LifeCycle from './pages/LifeCycle.js';
 
 const App = StackNavigator(
   {
     Index: {
       screen: Index
     },
-    DemoAnimated: {
-      screen: DemoAnimated
+    Animated: {
+      screen: Animated
     },
-    DemoLayoutAnimation: {
-      screen: DemoLayoutAnimation
+    LayoutAnimation: {
+      screen: LayoutAnimation
     },
-    DemoAnimatedEvent: {
-      screen: DemoAnimatedEvent
+    AnimatedEvent: {
+      screen: AnimatedEvent
     },
-    DemoKeyboardAvoidingView: {
-      screen: DemoKeyboardAvoidingView
+    KeyboardAvoidingView: {
+      screen: KeyboardAvoidingView
+    },
+    LifeCycle: {
+      screen: LifeCycle
     }
   },
   {

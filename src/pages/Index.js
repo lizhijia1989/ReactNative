@@ -22,20 +22,24 @@ export default class Index extends Page {
     StatusBar.setBarStyle('light-content');
     this.pages = [
       {
+        title: 'LifeCycle',
+        route: 'LifeCycle'
+      },
+      {
         title: 'Animated',
-        route: 'DemoAnimated'
+        route: 'Animated'
       },
       {
         title: 'LayoutAnimation',
-        route: 'DemoLayoutAnimation'
+        route: 'LayoutAnimation'
       },
       {
         title: 'Animated.event',
-        route: 'DemoAnimatedEvent'
+        route: 'AnimatedEvent'
       },
       {
         title: 'KeyboardAvoidingView',
-        route: 'DemoKeyboardAvoidingView'
+        route: 'KeyboardAvoidingView'
       }
     ];
   }
