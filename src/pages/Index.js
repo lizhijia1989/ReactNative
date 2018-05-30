@@ -40,6 +40,10 @@ export default class Index extends Page {
       {
         title: 'KeyboardAvoidingView',
         route: 'KeyboardAvoidingView'
+      },
+      {
+        title: 'KeyboardAwareScrollView',
+        route: 'KeyboardAwareScrollView'
       }
     ];
   }
