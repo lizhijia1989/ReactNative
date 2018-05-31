@@ -7,20 +7,21 @@
 import { StackNavigator } from 'react-navigation';
 
 import Index from './pages/Index.js';
-import LifeCycle from './pages/LifeCycle.js';
+import Lifecycle from './pages/Lifecycle.js';
 import Animated from './pages/Animated.js';
 import LayoutAnimation from './pages/LayoutAnimation.js';
 import AnimatedEvent from './pages/AnimatedEvent.js';
 import KeyboardAvoidingView from './pages/KeyboardAvoidingView.js';
 import KeyboardAwareScrollView from './pages/KeyboardAwareScrollView.js';
+import InputScrollView from './pages/InputScrollView.js';
 
 const App = StackNavigator(
   {
     Index: {
       screen: Index
     },
-    LifeCycle: {
-      screen: LifeCycle
+    Lifecycle: {
+      screen: Lifecycle
     },
     Animated: {
       screen: Animated
@@ -36,6 +37,9 @@ const App = StackNavigator(
     },
     KeyboardAwareScrollView: {
       screen: KeyboardAwareScrollView
+    },
+    InputScrollView: {
+      screen: InputScrollView
     }
   },
   {

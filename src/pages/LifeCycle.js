@@ -14,7 +14,7 @@ import Page from '../common/Page.js';
 import Viewport from '../components/Viewport.js';
 import Header from '../components/Header.js';
 
-class LifeCycleB extends Component {
+class LifecycleB extends Component {
   constructor(props) {
     super(props);
     console.log('constructor son');
@@ -49,7 +49,7 @@ class LifeCycleB extends Component {
   }
 }
 
-export default class LifeCycle extends Page {
+export default class Lifecycle extends Page {
   constructor(props) {
     super(props);
     this.state = {
@@ -81,7 +81,7 @@ export default class LifeCycle extends Page {
       <Viewport>
         <Header
           page={this}
-          title={'LifeCycle'}
+          title={'Lifecycle'}
         />
         <View
           style={{ height: this.state.update ? 10 : 20, backgroundColor: 'red' }}
@@ -98,7 +98,7 @@ export default class LifeCycle extends Page {
           >
             <Text>press</Text>
           </TouchableOpacity>
-          <LifeCycleB update={this.state.update} />
+          <LifecycleB update={this.state.update} />
         </View>
       </Viewport>
     );

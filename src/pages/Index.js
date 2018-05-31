@@ -22,8 +22,8 @@ export default class Index extends Page {
     StatusBar.setBarStyle('light-content');
     this.pages = [
       {
-        title: 'LifeCycle',
-        route: 'LifeCycle'
+        title: 'Lifecycle',
+        route: 'Lifecycle'
       },
       {
         title: 'Animated',
@@ -44,6 +44,10 @@ export default class Index extends Page {
       {
         title: 'KeyboardAwareScrollView',
         route: 'KeyboardAwareScrollView'
+      },
+      {
+        title: 'InputScrollView',
+        route: 'InputScrollView'
       }
     ];
   }
