@@ -13,6 +13,7 @@ import {
 import Page from '../common/Page.js';
 import Viewport from '../components/Viewport.js';
 import Header from '../components/Header.js';
+import CommonModal from '../components/CommonModal.js';
 
 class LifecycleB extends Component {
   constructor(props) {
@@ -53,18 +54,19 @@ export default class Lifecycle extends Page {
   constructor(props) {
     super(props);
     this.state = {
-      update: false
+      update: false,
+      isOpen: false
     };
     console.log('===============');
-    console.log('constructor father');
+    console.log('constructor father', this.ref);
   }
 
   componentWillMount() {
-    console.log('componentWillMount father');
+    console.log('componentWillMount father', this.ref);
   }
 
   componentDidMount() {
-    console.log('componentDidMount father');
+    console.log('componentDidMount father', this.ref);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -76,7 +78,7 @@ export default class Lifecycle extends Page {
   }
 
   render() {
-    console.log('render father');
+    console.log('render father', this.ref);
     return (
       <Viewport>
         <Header
@@ -86,7 +88,7 @@ export default class Lifecycle extends Page {
         <View
           style={{ height: this.state.update ? 10 : 20, backgroundColor: 'red' }}
           onLayout={e => {
-            console.log('onLayout father', e.nativeEvent);
+            console.log('onLayout father', e.nativeEvent, this.ref);
           }}
         >
           <TouchableOpacity
@@ -98,8 +100,43 @@ export default class Lifecycle extends Page {
           >
             <Text>press</Text>
           </TouchableOpacity>
-          <LifecycleB update={this.state.update} />
+          <TouchableOpacity
+            onPress={() => {
+              console.log(1111)
+              this.commonModalRef.toggle();
+            }}
+          >
+            <Text>press</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              console.log(2222)
+              this.setState({
+                isOpen: true
+              });
+            }}
+          >
+            <Text>press</Text>
+          </TouchableOpacity>
+          <LifecycleB ref={r => { this.ref = r; }} update={this.state.update} />
         </View>
+        {
+          <CommonModal
+            ref={r => { this.commonModalRef = r; }}
+            title={'我是标题我是标题'}
+          >
+            <Text>我是内容我是内容我是内容我是内容我是内容我是内容我是内容</Text>
+          </CommonModal>
+        }
+        {
+          <CommonModal
+            isOpen={this.state.isOpen}
+            onClosed={() => this.setState({ isOpen: false })}
+            title={'我是标题2我是标题2'}
+          >
+            <Text>我是内容2我是内容2我是内容2我是内容2我是内容2我是内容2我是内容2</Text>
+          </CommonModal>
+        }
       </Viewport>
     );
   }

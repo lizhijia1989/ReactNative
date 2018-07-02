@@ -38,6 +38,10 @@ export default class Index extends Page {
         route: 'AnimatedEvent'
       },
       {
+        title: 'CommonModal',
+        route: 'CommonModalPage'
+      },
+      {
         title: 'KeyboardAvoidingView',
         route: 'KeyboardAvoidingView'
       },
