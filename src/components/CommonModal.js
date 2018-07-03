@@ -120,8 +120,8 @@ export default class CommonModal extends Component {
 
 const styles = StyleSheet.create({
   modal: {
-    minHeight: screenHeight * 0.3,
-    maxHeight: screenHeight * 0.7,
+    minHeight: screenHeight * 0.4,
+    maxHeight: screenHeight * 0.6,
     backgroundColor: '#fff'
   },
   header: {
