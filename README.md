@@ -1,1 +1,3 @@
 # ReactNativeDemo
+
+serivce ./bin/www
