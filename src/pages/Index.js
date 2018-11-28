@@ -67,6 +67,24 @@ export default class Index extends Page {
         <ScrollView
           style={styles.scrollView}
         >
+          <TouchableHighlight
+            onPress={() => {
+              fetch('http://localhost:3000/', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: 'a=1&b=2'
+              }).then(res => {
+                console.log('res1', res);
+                return res.json();
+              }).then(res => {
+                console.log('res2', res);
+              }).catch(e => {
+                console.log('e', e);
+              });
+            }}
+          ><Text>button</Text></TouchableHighlight>
           {
             this.pages.map((item, i) => (
               <TouchableHighlight
