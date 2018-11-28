@@ -1,6 +1,6 @@
 # ReactNativeDemo
 
-##app
+#app
 npm start
-##serivce
+#serivce
 run ./bin/www
