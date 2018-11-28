@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "node node_modules/react-native/local-cli/cli.js start ",
     "test": "jest"
   },
   "dependencies": {
@@ -12,7 +12,13 @@
     "react-native": "^0.51.0",
     "react-native-input-scroll-view": "^1.6.7",
     "react-native-keyboard-aware-scroll-view": "^0.5.0",
-    "react-navigation": "^1.0.0-beta.11"
+    "react-navigation": "^1.0.0-beta.11",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "http-errors": "~1.6.2",
+    "jade": "~1.11.0",
+    "morgan": "~1.9.0"
   },
   "devDependencies": {
     "babel-jest": "21.2.0",
