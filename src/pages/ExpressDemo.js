@@ -69,7 +69,6 @@ export default class Index extends Page {
         <Header
           page={this}
           title={'ExpressDemo'}
-          hideBackBtn
         />
         {
           this.list.length ? <View style={{ flex: 1, flexDirection: 'row', flexWrap: 'wrap', padding: 10 }}>
