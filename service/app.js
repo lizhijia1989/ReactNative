@@ -21,6 +21,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(cookieParser());
 // app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/test', function(req, res, next) {
+	console.log('test');
+	next('a');
+});
+app.use(function(data, req, res, next) {
+	console.log('next', data);
+});
+
 app.use('/GetList', function(req, res, next) {
   console.log('GetList req.body', req.body);
   var _list = [1, 2, 3, 4, 5, 6, 7, 8, 9];
