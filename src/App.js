@@ -15,6 +15,7 @@ import KeyboardAvoidingView from './pages/KeyboardAvoidingView.js';
 import KeyboardAwareScrollView from './pages/KeyboardAwareScrollView.js';
 import InputScrollView from './pages/InputScrollView.js';
 import CommonModalPage from './pages/CommonModalPage.js';
+import ExpressDemo from './pages/ExpressDemo.js';
 
 const App = StackNavigator(
   {
@@ -44,6 +45,9 @@ const App = StackNavigator(
     },
     InputScrollView: {
       screen: InputScrollView
+    },
+    ExpressDemo: {
+      screen: ExpressDemo
     }
   },
   {
