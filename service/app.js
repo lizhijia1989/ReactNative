@@ -23,10 +23,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/test', function(req, res, next) {
 	console.log('test');
-	next('a');
+	next('ttttttttt');
 });
 app.use(function(data, req, res, next) {
 	console.log('next', data);
+	res.send(`test info: ${data}`);
 });
 
 app.use('/GetList', function(req, res, next) {
