@@ -5,11 +5,9 @@ var createError = require('http-errors');
 var bodyParser = require('body-parser'); // request中间件，信息保存在req.body
 var logger = require('morgan'); // 日志记录中间件
 
-// var indexRouter = require('./routes/index');
-// var usersRouter = require('./routes/users');
-
 // express()用来创建一个Express的程序。express()方法是express模块导出的顶层方法。
 var app = express();
+var apiRouter = require('./routes/api');
 
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
@@ -30,35 +28,7 @@ app.use(function(data, req, res, next) {
 	res.send(`test info: ${data}`);
 });
 
-app.use('/GetList', function(req, res, next) {
-  console.log('GetList req.body', req.body);
-  var _list = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  var list = [];
-  var number = req.body.number;
-  if (!number) {
-  	res.json({
-	    status: 400,
-	    info: '缺少number',
-	    list
-	  });
-	  return;
-  }
-  list = _list.filter((item, i) => i < Number(number));
-  res.json({
-    status: 200,
-    info: '成功',
-    list
-  });
-});
-
-app.use('/PostInfo', function(req, res, next) {
-  console.log('PostInfo req.body', req.body);
-  res.json({
-    status: 200,
-    info: '成功',
-    message: `你选择了${req.body.info}号`
-  });
-});
+app.use('/api', apiRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
