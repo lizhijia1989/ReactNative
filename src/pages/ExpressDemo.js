@@ -26,7 +26,7 @@ export default class Index extends Page {
   }
 
   componentWillMount() {
-    this.fetchList(9);
+    this.fetchList();
   }
 
   fetchList = () => {
